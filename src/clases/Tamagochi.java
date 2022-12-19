@@ -19,7 +19,7 @@ public class Tamagochi {
 		int option;
 
 		do {
-			
+			cleanConsole();
 			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT, time, day);
 
 			if(time > 21) 
@@ -33,18 +33,38 @@ public class Tamagochi {
 				time = pet.play() == 2 ? time + 2 : time;
 				break;
 			case SLEEP:
+				pet.checkPetHealth();
 				time = 8;
 				day++;
+				pet.setHungerPoints( (int) (Math.random()*10 + 1));
+				pet.setJoyPoints( (int) (Math.random()*10 + 1));
 				break;
 			case EXIT:
-				System.out.println("ADIOS");
+				bye();
 				break;
 			default:
-				System.out.println("Opcion incorrecta!");
+				System.out.println("Wrong option!!!!");
 			}
 
 		} while (option != EXIT && !pet.isDead());
 		sc.close();
+	}
+
+	private void cleanConsole() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println("");
+		}
+	}
+
+	private void bye() {
+		System.out.println(" _                \r\n"
+				+ "| |               \r\n"
+				+ "| |__  _   _  ___ \r\n"
+				+ "| '_ \\| | | |/ _ \\\r\n"
+				+ "| |_) | |_| |  __/\r\n"
+				+ "|_.__/ \\__, |\\___|\r\n"
+				+ "        __/ |     \r\n"
+				+ "       |___/      ");
 	}
 
 	private int showPetStatsAndSelectOption(Scanner sc, Pet pet, final int FEED, final int PLAY, final int SLEEP,
@@ -60,7 +80,7 @@ public class Tamagochi {
 		pet.showStatusBar(pet.getJoyPoints());
 		System.out.println("\nWhat you wanna do");
 		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
-		System.out.println("Select the option: ");
+		System.out.print("Select the option: ");
 		try {
 			option = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
