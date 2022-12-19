@@ -13,8 +13,8 @@ public class Pet {
 	
 	public Pet() {
 		this.healthPoints = 10;
-		this.hungerPoints = 9;
-		this.joyPoints = 3;
+		this.hungerPoints = (int) (Math.random()*10 + 1);
+		this.joyPoints = (int) (Math.random()*10 + 1);
 		this.dead = false;
 	}
 	
@@ -67,6 +67,10 @@ public class Pet {
 	}
 	
 	public int feed() {
+		
+		if(this.joyPoints == 0)
+			return 2;
+		
 		System.out.println("A carrot for " + this.name);
 		System.out.println("    _\\/_\r\n"
 				+ "    \\  /\r\n"
@@ -81,6 +85,10 @@ public class Pet {
 	}
 	
 	public int play() {
+		
+		if(this.hungerPoints == 0)
+			return 2;
+		
 		System.out.println("Playing with " + this.name);
 		System.out.println("		    __\r\n"
 				+ "		 .'\".'\"'.\r\n"
@@ -122,7 +130,7 @@ public class Pet {
 		}
 		if(this.healthPoints == 0) {
 			this.dead = true;
-			System.out.println("Your rabbit died!");
+			System.out.println(this.name + " died!");
 		}
 	}
 }
