@@ -14,13 +14,13 @@ public class Tamagochi {
 		final int EXIT = 0;
 
 		int time = 8;
-		int day = 0;
+		int day = 1;
 		
 		int option;
 
 		do {
 			
-			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT);
+			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT, time, day);
 
 			switch (option) {
 			case FEED:
@@ -44,8 +44,9 @@ public class Tamagochi {
 	}
 
 	private int showPetStatsAndSelectOption(Scanner sc, Pet pet, final int FEED, final int PLAY, final int SLEEP,
-			final int EXIT) {
+			final int EXIT, int time, int day) {
 		int option = -1;
+		System.out.println("TIME: " + time + "\t\t\t\t\tDAY: " + day);
 		pet.showPet();
 		System.out.print("Health:\t");
 		pet.showStatusBar(pet.getHealthPoints());
