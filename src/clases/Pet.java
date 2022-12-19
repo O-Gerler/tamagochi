@@ -11,7 +11,7 @@ public class Pet {
 		this.healthPoints = 10;
 		this.hungerPoints = 9;
 		this.joyPoints = 3;
-		this.dead = true;
+		this.dead = false;
 	}
 	
 	public String getName() {
