@@ -47,11 +47,14 @@ public class Tamagochi {
 			final int EXIT) {
 		int option = -1;
 		pet.showPet();
+		System.out.print("Health:\t");
 		pet.showStatusBar(pet.getHealthPoints());
+		System.out.print("\nHunger:\t");
 		pet.showStatusBar(pet.getHungerPoints());
+		System.out.print("\nJoy:\t");
 		pet.showStatusBar(pet.getJoyPoints());
-		System.out.println("What you wanna do");
-		System.out.println(FEED + ". FEED\t" + PLAY + ". PLAY\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
+		System.out.println("\nWhat you wanna do");
+		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
 		System.out.println("Select the option: ");
 		try {
 			option = Integer.parseInt(sc.nextLine());
