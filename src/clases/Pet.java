@@ -68,4 +68,46 @@ public class Pet {
 			System.out.println("Your rabbit died!");
 		}
 	}
+	
+	public int feed() {
+		System.out.println("A carrot for " + this.name);
+		System.out.println("_\\/_\r\n"
+				+ "   \\  /\r\n"
+				+ "    \\/");
+		
+		return addPoints(this.healthPoints, 'p') ? 2 : 0;
+	}
+	
+	public int play() {
+		System.out.println("Playing with " + this.name);
+		System.out.println("    __\r\n"
+				+ " .'\".'\"'.\r\n"
+				+ ":._.\"\"._.:\r\n"
+				+ ":  \\__/  :\r\n"
+				+ " './  \\.'\r\n"
+				+ "    \"\"");
+		
+		return addPoints(this.healthPoints, 'h') ? 2 : 0;
+	}
+
+	private boolean addPoints(int points, char typeOfPoints) {
+		if(typeOfPoints == 'h') {
+			if (this.healthPoints < 10) {
+				this.healthPoints++;
+				return true;
+			}
+			
+			return false;
+			
+		} else {
+			if (this.joyPoints < 10) {
+				this.joyPoints++;
+				return true;
+			}
+				
+			return false;
+			
+		}
+		
+	}
 }
