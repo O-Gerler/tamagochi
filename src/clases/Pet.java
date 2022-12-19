@@ -38,5 +38,15 @@ public class Pet {
 		this.alive = alive;
 	}
 	
+	public void showPet() {
+		System.out.println("             ,\\\r\n"
+				+ "             \\\\\\,_\r\n"
+				+ "              \\` ,\\\r\n"
+				+ "         __,.-\" =__)\r\n"
+				+ "       .\"        )\r\n"
+				+ "    ,_/   ,    \\/\\_\r\n"
+				+ "    \\_|    )_-\\ \\_-`\r\n"
+				+ "jgs    `-----` `--`");
+	}
 	
 }
