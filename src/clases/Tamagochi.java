@@ -19,14 +19,7 @@ public class Tamagochi {
 		int option;
 
 		do {
-			pet.showPet();
-			pet.showStatusBar(pet.getHealthPoints());
-			pet.showStatusBar(pet.getHungerPoints());
-			pet.showStatusBar(pet.getJoyPoints());
-			System.out.println("What you wanna do");
-			System.out.println(FEED + ". FEED\t" + PLAY + ". PLAY\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
-			System.out.println("Select the option: ");
-			option = Integer.parseInt(sc.nextLine());
+			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT);
 
 			switch (option) {
 			case FEED:
@@ -47,6 +40,26 @@ public class Tamagochi {
 
 		} while (option != EXIT && !pet.isDead());
 		sc.close();
+	}
+
+	private int showPetStatsAndSelectOption(Scanner sc, Pet pet, final int FEED, final int PLAY, final int SLEEP,
+			final int EXIT) {
+		int option = -1;
+		pet.showPet();
+		pet.showStatusBar(pet.getHealthPoints());
+		pet.showStatusBar(pet.getHungerPoints());
+		pet.showStatusBar(pet.getJoyPoints());
+		System.out.println("What you wanna do");
+		System.out.println(FEED + ". FEED\t" + PLAY + ". PLAY\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
+		System.out.println("Select the option: ");
+		try {
+			option = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			System.out.println("Select a correct option!");
+			option = -1;
+		}
+		
+		return option;
 	}
 
 	private void setPetName(Scanner sc, Pet pet) {
