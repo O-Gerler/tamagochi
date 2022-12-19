@@ -75,7 +75,7 @@ public class Pet {
 	
 	public int feed() {
 		System.out.println("A carrot for " + this.name);
-		System.out.println("	_\\/_\r\n"
+		System.out.println("_\\/_\r\n"
 				+ "   \\  /\r\n"
 				+ "    \\/");
 		
