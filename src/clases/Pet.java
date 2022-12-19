@@ -7,6 +7,13 @@ public class Pet {
 	private int joyPoints;
 	private boolean alive;
 	
+	public Pet() {
+		this.healthPoints = 10;
+		this.hungerPoints = 9;
+		this.joyPoints = 3;
+		this.alive = true;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -48,5 +55,6 @@ public class Pet {
 				+ "    \\_|    )_-\\ \\_-`\r\n"
 				+ "jgs    `-----` `--`");
 	}
+	
 	
 }
