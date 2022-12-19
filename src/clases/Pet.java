@@ -5,13 +5,13 @@ public class Pet {
 	private int healthPoints;
 	private int hungerPoints;
 	private int joyPoints;
-	private boolean alive;
+	private boolean dead;
 	
 	public Pet() {
 		this.healthPoints = 10;
 		this.hungerPoints = 9;
 		this.joyPoints = 3;
-		this.alive = true;
+		this.dead = true;
 	}
 	
 	public String getName() {
@@ -39,10 +39,10 @@ public class Pet {
 		this.joyPoints = joyPoints;
 	}
 	public boolean isAlive() {
-		return alive;
+		return dead;
 	}
 	public void setAlive(boolean alive) {
-		this.alive = alive;
+		this.dead = alive;
 	}
 	
 	public void showPet() {
@@ -59,6 +59,13 @@ public class Pet {
 	public void showStatusBar(int statusBar) {
 		for (int i = 0; i < statusBar; i++) {
 			System.out.println("#");
+		}
+	}
+	
+	public void healthChecker() {
+		if(this.healthPoints == 0) {
+			this.dead = true;
+			System.out.println("Your rabbit died!");
 		}
 	}
 }
