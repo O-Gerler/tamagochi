@@ -119,4 +119,13 @@ public class Pet {
 			return false;
 		}
 	}
+	
+	public void checkPetHealth() {
+		if(this.joyPoints < 5) {
+			this.healthPoints--;
+		}
+		if(this.hungerPoints < 5) {
+			this.healthPoints--;
+		}
+	}
 }
