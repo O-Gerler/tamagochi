@@ -56,5 +56,9 @@ public class Pet {
 				+ "jgs    `-----` `--`");
 	}
 	
-	
+	public void showStatusBar(int statusBar) {
+		for (int i = 0; i < statusBar; i++) {
+			System.out.println("#");
+		}
+	}
 }
