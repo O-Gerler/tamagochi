@@ -75,16 +75,16 @@ public class Pet {
 	
 	public int feed() {
 		System.out.println("A carrot for " + this.name);
-		System.out.println("_\\/_\r\n"
-				+ "   \\  /\r\n"
-				+ "    \\/");
+		System.out.println("    _\\/_\r\n"
+				+ "    \\  /\r\n"
+				+ "     \\/");
 		
-		this.joyPoints = this.joyPoints -2;
+		this.joyPoints = this.joyPoints -1;
 		
 		System.out.print("Press enter...");
 		sc.nextLine();
 		
-		return addPoints(this.healthPoints, 'p') ? 2 : 0;
+		return addPoints(this.hungerPoints, 'h') ? 2 : 0;
 	}
 	
 	public int play() {
@@ -96,24 +96,24 @@ public class Pet {
 				+ "		 './  \\.'\r\n"
 				+ "		    \"\"");
 		
-		this.hungerPoints = this.hungerPoints -2;
+		this.hungerPoints = this.hungerPoints -1;
 		
 		System.out.print("Press enter...");
 		sc.nextLine();
 		
-		return addPoints(this.healthPoints, 'h') ? 2 : 0;
+		return addPoints(this.joyPoints, 'p') ? 2 : 0;
 	}
 
 	private boolean addPoints(int points, char typeOfPoints) {
 		if(typeOfPoints == 'h') {
-			if (this.healthPoints < 10) {
-				this.healthPoints++;
+			if (this.hungerPoints < 10) {
+				this.hungerPoints = this.hungerPoints + 1;
 				return true;
 			}
 			return false;
 		} else {
 			if (this.joyPoints < 10) {
-				this.joyPoints++;
+				this.joyPoints = this.joyPoints + 1;
 				return true;
 			}
 			return false;
