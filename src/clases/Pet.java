@@ -75,6 +75,8 @@ public class Pet {
 				+ "   \\  /\r\n"
 				+ "    \\/");
 		
+		this.joyPoints = this.joyPoints -2;
+		
 		return addPoints(this.healthPoints, 'p') ? 2 : 0;
 	}
 	
@@ -86,6 +88,8 @@ public class Pet {
 				+ ":  \\__/  :\r\n"
 				+ " './  \\.'\r\n"
 				+ "    \"\"");
+		
+		this.hungerPoints = this.hungerPoints -2;
 		
 		return addPoints(this.healthPoints, 'h') ? 2 : 0;
 	}
