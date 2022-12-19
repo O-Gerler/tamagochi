@@ -22,6 +22,9 @@ public class Tamagochi {
 			
 			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT, time, day);
 
+			if(time > 21) 
+				option = SLEEP;
+			
 			switch (option) {
 			case FEED:
 				time = pet.feed() == 2 ? time + 2 : time;
@@ -30,7 +33,8 @@ public class Tamagochi {
 				time = pet.play() == 2 ? time + 2 : time;
 				break;
 			case SLEEP:
-				System.out.println("tercera opcion seleccionada\n");
+				time = 8;
+				day++;
 				break;
 			case EXIT:
 				System.out.println("ADIOS");
