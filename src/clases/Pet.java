@@ -1,11 +1,15 @@
 package clases;
 
+import java.util.Scanner;
+
 public class Pet {
 	private String name;
 	private int healthPoints;
 	private int hungerPoints;
 	private int joyPoints;
 	private boolean dead;
+	
+	Scanner sc = new Scanner(System.in);
 	
 	public Pet() {
 		this.healthPoints = 10;
@@ -77,6 +81,9 @@ public class Pet {
 		
 		this.joyPoints = this.joyPoints -2;
 		
+		System.out.print("Press enter...");
+		sc.nextLine();
+		
 		return addPoints(this.healthPoints, 'p') ? 2 : 0;
 	}
 	
@@ -90,6 +97,9 @@ public class Pet {
 				+ "		    \"\"");
 		
 		this.hungerPoints = this.hungerPoints -2;
+		
+		System.out.print("Press enter...");
+		sc.nextLine();
 		
 		return addPoints(this.healthPoints, 'h') ? 2 : 0;
 	}
