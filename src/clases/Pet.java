@@ -53,12 +53,12 @@ public class Pet {
 				+ "       .\"        )\r\n"
 				+ "    ,_/   ,    \\/\\_\r\n"
 				+ "    \\_|    )_-\\ \\_-`\r\n"
-				+ "jgs    `-----` `--`");
+				+ "       `-----` `--`");
 	}
 	
 	public void showStatusBar(int statusBar) {
 		for (int i = 0; i < statusBar; i++) {
-			System.out.println("#");
+			System.out.print("#");
 		}
 	}
 	
@@ -71,7 +71,7 @@ public class Pet {
 	
 	public int feed() {
 		System.out.println("A carrot for " + this.name);
-		System.out.println("_\\/_\r\n"
+		System.out.println("	_\\/_\r\n"
 				+ "   \\  /\r\n"
 				+ "    \\/");
 		
@@ -82,12 +82,12 @@ public class Pet {
 	
 	public int play() {
 		System.out.println("Playing with " + this.name);
-		System.out.println("    __\r\n"
-				+ " .'\".'\"'.\r\n"
-				+ ":._.\"\"._.:\r\n"
-				+ ":  \\__/  :\r\n"
-				+ " './  \\.'\r\n"
-				+ "    \"\"");
+		System.out.println("		    __\r\n"
+				+ "		 .'\".'\"'.\r\n"
+				+ "		:._.\"\"._.:\r\n"
+				+ "		:  \\__/  :\r\n"
+				+ "		 './  \\.'\r\n"
+				+ "		    \"\"");
 		
 		this.hungerPoints = this.hungerPoints -2;
 		
@@ -100,18 +100,13 @@ public class Pet {
 				this.healthPoints++;
 				return true;
 			}
-			
 			return false;
-			
 		} else {
 			if (this.joyPoints < 10) {
 				this.joyPoints++;
 				return true;
 			}
-				
 			return false;
-			
 		}
-		
 	}
 }
