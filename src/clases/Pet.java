@@ -66,13 +66,6 @@ public class Pet {
 		}
 	}
 	
-	public void healthChecker() {
-		if(this.healthPoints == 0) {
-			this.dead = true;
-			System.out.println("Your rabbit died!");
-		}
-	}
-	
 	public int feed() {
 		System.out.println("A carrot for " + this.name);
 		System.out.println("    _\\/_\r\n"
@@ -126,6 +119,10 @@ public class Pet {
 		}
 		if(this.hungerPoints < 5) {
 			this.healthPoints--;
+		}
+		if(this.healthPoints == 0) {
+			this.dead = true;
+			System.out.println("Your rabbit died!");
 		}
 	}
 }
