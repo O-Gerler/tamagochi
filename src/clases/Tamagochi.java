@@ -13,20 +13,21 @@ public class Tamagochi {
 		final int SLEEP = 3;
 		final int EXIT = 0;
 
-		int time = 0;
+		int time = 8;
 		int day = 0;
 		
 		int option;
 
 		do {
+			
 			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT);
 
 			switch (option) {
 			case FEED:
-				System.out.println("primera opcion seleccionada\n");
+				time = pet.feed() == 2 ? time + 2 : time;
 				break;
 			case PLAY:
-				System.out.println("segunda opcion seleccionada\n");
+				time = pet.play() == 2 ? time + 2 : time;
 				break;
 			case SLEEP:
 				System.out.println("tercera opcion seleccionada\n");
