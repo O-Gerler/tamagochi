@@ -38,11 +38,11 @@ public class Pet {
 	public void setJoyPoints(int joyPoints) {
 		this.joyPoints = joyPoints;
 	}
-	public boolean isAlive() {
+	public boolean isDead() {
 		return dead;
 	}
-	public void setAlive(boolean alive) {
-		this.dead = alive;
+	public void setDead(boolean dead) {
+		this.dead = dead;
 	}
 	
 	public void showPet() {
