@@ -27,7 +27,7 @@ public class WordGuessingGame {
 		for (int i = 0; i < wordSeparated.length && tries != 0; i++) {
 			System.out.print("Choose a character: ");
 			String guessedChar = sc.nextLine().trim().toLowerCase().charAt(0) + "";
-			if (wordSeparated[i].equals(emptyWord[i])) 
+			if (wordSeparated[i].equals(guessedChar)) 
 				emptyWord[i].replace("_", guessedChar);
 			else
 				tries--;
