@@ -33,23 +33,30 @@ public class Tamagochi {
 			switch (option) {
 			case FEED:
 				time = pet.feed() == 2 ? time + 2 : time;
+				System.out.println("Press enter to continue...");
+				sc.nextLine();
 				break;
+				
 			case PLAY:
 				time = pet.play() == 2 ? time + 2 : time;
 				System.out.println("Press enter to continue...");
 				sc.nextLine();
 				break;
+				
 			case SLEEP:
 				pet.checkPetHealth();
 				time = 8;
 				day++;
 				pet.setHungerPoints( pet.getHungerPoints() - 2 < 1 ? 1 : pet.getHungerPoints() - 2);
 				pet.setJoyPoints( (int) (Math.random()*7 + 1));
+				System.out.println("Going to sleep\nPress enter to continue...");
+				sc.nextLine();
 				break;
+				
 			case BAG:
-				cleanConsole();
 				int bagOption = -1;
 				do {
+					cleanConsole();
 					bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
 					switch (bagOption){
 					case BAG_MENU_BUY:
@@ -70,9 +77,11 @@ public class Tamagochi {
 					}
 				} while (bagOption != BAG_MENU_EXIT);
 				break;
+				
 			case EXIT:
 				bye();
 				break;
+				
 			default:
 				System.out.println("Wrong option!!!!");
 			}
