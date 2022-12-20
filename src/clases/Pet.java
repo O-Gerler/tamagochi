@@ -20,8 +20,8 @@ public class Pet {
 	
 	public Pet() {
 		this.healthPoints = 10;
-		this.hungerPoints = (int) (Math.random()*10 + 1);
-		this.joyPoints = (int) (Math.random()*10 + 1);
+		this.hungerPoints = 7;
+		this.joyPoints = (int) (Math.random()*7 + 1);
 		this.dead = false;
 	}
 	
