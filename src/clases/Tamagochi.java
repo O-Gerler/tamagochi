@@ -94,9 +94,13 @@ public class Tamagochi {
 		int option = -1;
 		pet.bag.show();
 		System.out.println("-------------------BAG-MENU-------------------");
-		System.out.println("Your inventory:\nMoney: " + pet.bag.getMoney() + "\nHealth potions: " + pet.bag.getHealthPotions()
-				+ "\nFeed potions: " + pet.bag.getFeedPotions());
-		System.out.println(bAG_MENU_BUY + ". BUY\t\t\t" + bAG_MENU_USE + ". USE\t\t\t" + bAG_MENU_EXIT + ". EXIT");
+		System.out.print("Your inventory:\t\t\t\t\t" + pet.getName() + "\nMoney: " + pet.bag.getMoney() + "\t\t\t\t\tHealth:\t"); 
+		pet.showStatusBar(pet.getHealthPoints());
+		System.out.print("\nHealth potions: " + pet.bag.getHealthPotions() + "\t\t\t\tHunger:\t"); 
+		pet.showStatusBar(pet.getHungerPoints());
+		System.out.print("\nFeed potions: " + pet.bag.getFeedPotions() + "\t\t\t\t\tJoy:\t");
+		pet.showStatusBar(pet.getJoyPoints());
+		System.out.println("\n\n" + bAG_MENU_BUY + ". BUY\t\t\t" + bAG_MENU_USE + ". USE\t\t\t" + bAG_MENU_EXIT + ". EXIT");
 		System.out.print("Select the option: ");
 		try {
 			option = Integer.parseInt(sc.nextLine());
