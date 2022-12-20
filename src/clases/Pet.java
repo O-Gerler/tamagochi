@@ -122,9 +122,6 @@ public class Pet {
 						+ "		    \"\"");
 				
 				win = true;
-				
-				System.out.print("Press enter...");
-				sc.nextLine();
 				break;
 			case 4: 
 				System.out.println(this.name + " dont want to play right now");
