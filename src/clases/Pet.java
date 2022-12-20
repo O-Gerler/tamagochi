@@ -165,4 +165,54 @@ public class Pet {
 			System.out.println(this.name + " died!");
 		}
 	}
+
+	public String buyPotions() {
+		if(this.bag.getMoney() < this.bag.FEED_POTIONS_PRICE)
+			return "You have not enough money to buy this products";
+		
+		int potionOption = 0;
+		int potionQuantity = 1;
+		
+		System.out.println("1. Feed potion\t\t\t2. Health potions");
+		System.out.print("What do you want to buy: ");
+		
+		try {
+			potionOption = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			return "Something went wrong!!!\nExiting...";
+		}
+		
+		System.out.println("How much potions you want");
+		
+		try {
+			potionQuantity = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			return "Something went wrong!!!\nExiting...";
+		}
+		
+		System.out.println("Are you sure [Y/n]");
+		char confirmOption = sc.nextLine().trim().toLowerCase().charAt(0);
+		if ( confirmOption != '\n' || confirmOption != 'y') {
+			return "Exiting...";
+		}
+		
+		if(potionOption == 1 && this.bag.getMoney() >= this.bag.FEED_POTIONS_PRICE*potionQuantity) {
+			this.bag.setFeedPotions(this.bag.getFeedPotions() + potionQuantity);
+			this.bag.setMoney(this.bag.getMoney() - this.bag.FEED_POTIONS_PRICE*potionQuantity);
+			return "Done succesfully, your feed potions now are: " + this.bag.getFeedPotions();
+		}
+			
+		if(potionOption == 2 && this.bag.getMoney() >= this.bag.HEALTH_POTIONS_PRICE*potionQuantity) {
+			this.bag.setHealthPotions(this.bag.getHealthPotions() + potionQuantity);
+			this.bag.setMoney(this.bag.getMoney() - this.bag.HEALTH_POTIONS_PRICE*potionQuantity);
+			return "Done succesfully, your health potions now are: " + this.bag.getHealthPotions();
+		}
+		
+		return "Something went wrong!!!";
+	}
+
+	public void usePotions() {
+		// TODO Auto-generated method stub
+		
+	}
 }
