@@ -14,6 +14,8 @@ public class Pet {
 	
 	Scanner sc = new Scanner(System.in);
 	
+	Bag bag = new Bag();
+	
 	public Pet() {
 		this.healthPoints = 10;
 		this.hungerPoints = (int) (Math.random()*10 + 1);
@@ -125,6 +127,8 @@ public class Pet {
 			case 4: 
 				System.out.println(this.name + " dont want to play right now");
 		}
+		
+		bag.setMoney(win ? bag.getMoney() + 50 : bag.getMoney());
 		
 		this.hungerPoints = this.hungerPoints -1;
 		addPoints('p', win);
