@@ -1,5 +1,7 @@
 package clases;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import games.NumberGuessingGame;
@@ -162,7 +164,22 @@ public class Pet {
 		}
 		if(this.healthPoints <= 0) {
 			this.dead = true;
+			System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⠀⠀⠀⣠⣔⡿⠛⠒⠒⡕⢄⠀⠀⠀⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⠀⣀⣴⣳⠃⠀⠀⠀⠀⠘⢎⡦⣄⠀⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⣜⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠢⣳⠀⠀⠀\r\n"
+					+ "⠀⠀⢸⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⡆⠀⠀\r\n"
+					+ "⠀⠀⠘⡏⢀⢴⠶⣤⢄⢲⣲⠦⣦⣤⡤⡀⡇⠇⠀⠀\r\n"
+					+ "⠀⠀⠀⣧⠀⣾⢀⣸⡸⠘⢸⠀⣿⠀⣸⡏⣧⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⢹⠀⣿⠿⡯⡀⢀⣼⢀⣿⠛⠉⠀⢻⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⣿⠐⠛⠂⠘⠛⠒⠛⠊⠛⠂⠀⢸⢸⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡼⠀⠀⠀\r\n"
+					+ "⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡆⠀⠀⠀\r\n"
+					+ "⠀⠀⢀⢾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡷⡀⠀⠀\r\n"
+					+ "⠀⣠⠃⠘⠊⠉⠛⠛⠋⠩⠩⠭⠍⠛⠛⠛⠃⠐⡄⠀\r\n"
+					+ "⠀⣯⡉⠉⢉⡉⠉⠉⠉⠉⠉⠉⣉⣉⣉⣉⣉⣉⣹⠀");
 			System.out.println(this.name + " died!");
+			System.out.println(new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
 		}
 	}
 
@@ -182,7 +199,7 @@ public class Pet {
 			return "Something went wrong!!!\nExiting...";
 		}
 		
-		System.out.println("How much potions you want");
+		System.out.print("How many potions you want: ");
 		
 		try {
 			potionQuantity = Integer.parseInt(sc.nextLine());
@@ -194,9 +211,9 @@ public class Pet {
 			return "You cannot buy 0 potions";
 		}
 		
-		System.out.println("Are you sure [Y/n]");
-		char confirmOption = sc.nextLine().trim().toLowerCase().charAt(0);
-		if ( confirmOption != '\n' || confirmOption != 'y') {
+		System.out.print("Are you sure [Y/n]");
+		String confirmOption = sc.nextLine().trim().toLowerCase();
+		if (!confirmOption.equals("") && !confirmOption.equals("y")) {
 			return "Exiting...";
 		}
 		
@@ -245,9 +262,9 @@ public class Pet {
 			return "you cannot use more potions than what you have in the bag";
 		}
 		
-		System.out.println("Are you sure [Y/n]");
-		char confirmOption = sc.nextLine().trim().toLowerCase().charAt(0);
-		if ( confirmOption != '\n' || confirmOption != 'y') {
+		System.out.print("Are you sure [Y/n]");
+		String confirmOption = sc.nextLine().trim().toLowerCase();
+		if (!confirmOption.equals("") && !confirmOption.equals("y")) {
 			return "Exiting...";
 		}
 		
