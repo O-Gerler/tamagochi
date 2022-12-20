@@ -81,7 +81,7 @@ public class Pet {
 		System.out.print("Press enter...");
 		sc.nextLine();
 		
-		return addPoints(this.hungerPoints, 'h') ? 2 : 0;
+		return addPoints(this.hungerPoints, 'h', true) ? 2 : 0;
 	}
 	
 	public int play() {
@@ -89,36 +89,51 @@ public class Pet {
 		if(this.hungerPoints == 0)
 			return 2;
 		
-		System.out.println("Playing with " + this.name);
-		System.out.println("		    __\r\n"
-				+ "		 .'\".'\"'.\r\n"
-				+ "		:._.\"\"._.:\r\n"
-				+ "		:  \\__/  :\r\n"
-				+ "		 './  \\.'\r\n"
-				+ "		    \"\"");
+		int gameSeletion = (int)(Math.random()*3 +1);
+		boolean win = false;
 		
-		this.hungerPoints = this.hungerPoints -1;
+		switch(gameSeletion) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				System.out.println("Playing with " + this.name);
+				System.out.println("		    __\r\n"
+						+ "		 .'\".'\"'.\r\n"
+						+ "		:._.\"\"._.:\r\n"
+						+ "		:  \\__/  :\r\n"
+						+ "		 './  \\.'\r\n"
+						+ "		    \"\"");
+				
+				this.hungerPoints = this.hungerPoints -1;
+				win = true;
+				
+				System.out.print("Press enter...");
+				sc.nextLine();
+		}
 		
-		System.out.print("Press enter...");
-		sc.nextLine();
 		
-		return addPoints(this.joyPoints, 'p') ? 2 : 0;
+		
+		return addPoints(this.joyPoints, 'p', win) ? 2 : 0;
 	}
 
-	private boolean addPoints(int points, char typeOfPoints) {
-		if(typeOfPoints == 'h') {
+	private boolean addPoints(int points, char typeOfPoints, boolean win) {
+		if(win && typeOfPoints == 'h') {
 			if (this.hungerPoints < 10) {
 				this.hungerPoints = this.hungerPoints + 1;
 				return true;
 			}
 			return false;
-		} else {
+		} else if (win && typeOfPoints == 'p'){
 			if (this.joyPoints < 10) {
 				this.joyPoints = this.joyPoints + 1;
 				return true;
 			}
 			return false;
 		}
+		
+		return false;
 	}
 	
 	public void checkPetHealth() {
