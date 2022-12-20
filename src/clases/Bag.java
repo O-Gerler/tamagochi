@@ -41,5 +41,17 @@ public class Bag {
 		return FEED_POTIONS_PRICE;
 	}
 	
+	public void buyHealthPotions() {
+		if (this.money > HEALTH_POTIONS_PRICE) {
+			this.healthPotions++;
+			this.money -= HEALTH_POTIONS_PRICE;
+		}
+	}
 	
+	public void buyFeedPotions() {
+		if (this.money > FEED_POTIONS_PRICE) {
+			this.healthPotions++;
+			this.money -= FEED_POTIONS_PRICE;
+		}
+	}
 }
