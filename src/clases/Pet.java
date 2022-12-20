@@ -71,8 +71,10 @@ public class Pet {
 	
 	public int feed() {
 		
-		if(this.joyPoints == 0)
+		if (this.joyPoints == 0) {
+			System.out.println("You cant play anymore not enough play Joy energy");
 			return 2;
+		}
 		
 		System.out.println("A carrot for " + this.name);
 		System.out.println("    _\\/_\r\n"
