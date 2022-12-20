@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class NumberGuessingGame {
 	public static boolean run() {
 		final int CORRECT_NUMBER =(int) (Math.random()*100 +1);
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int guessedNumber = 0;
 		
