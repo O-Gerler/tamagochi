@@ -29,6 +29,8 @@ public class NumberGuessingGame {
 			}
 		}
 		
+		sc.close();
+		
 		return false;
 	}
 }
