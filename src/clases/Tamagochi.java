@@ -42,6 +42,7 @@ public class Tamagochi {
 				break;
 			case BAG:
 				System.out.println("SHOW BAG");
+				break;
 			case EXIT:
 				bye();
 				break;
@@ -73,7 +74,7 @@ public class Tamagochi {
 	private int showPetStatsAndSelectOption(Scanner sc, Pet pet, final int FEED, final int PLAY, final int SLEEP,
 			final int BAG, final int EXIT, int time, int day) {
 		int option = -1;
-		System.out.println("TIME: " + time + "\t\t\t\t\tMONEY: " + pet.bag.getMoney() + "\t\t\t\t\tDAY: " + day);
+		System.out.println("TIME: " + time + "\t\t\tMONEY: " + pet.bag.getMoney() + "\t\t\tDAY: " + day);
 		pet.showPet();
 		System.out.print("Health:\t");
 		pet.showStatusBar(pet.getHealthPoints());
@@ -82,7 +83,7 @@ public class Tamagochi {
 		System.out.print("\nJoy:\t");
 		pet.showStatusBar(pet.getJoyPoints());
 		System.out.println("\nWhat you wanna do");
-		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t\t" + BAG + ". BAG\t" + EXIT + ". EXIT");
+		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t" + BAG + ". BAG\t\t" + EXIT + ". EXIT");
 		System.out.print("Select the option: ");
 		try {
 			option = Integer.parseInt(sc.nextLine());
