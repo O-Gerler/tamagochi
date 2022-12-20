@@ -127,13 +127,13 @@ public class Pet {
 	private boolean addPoints(int points, char typeOfPoints, boolean win) {
 		if(win && typeOfPoints == 'h') {
 			if (this.hungerPoints < 10) {
-				this.hungerPoints = this.hungerPoints + 1;
+				this.hungerPoints += 1;
 				return true;
 			}
 			return false;
 		} else if (win && typeOfPoints == 'p'){
 			if (this.joyPoints < 10) {
-				this.joyPoints = this.joyPoints + 1;
+				this.joyPoints = this.joyPoints + 2 > 10 ? 10 : this.joyPoints + 2;
 				return true;
 			}
 			return false;
