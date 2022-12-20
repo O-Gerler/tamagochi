@@ -9,8 +9,6 @@ public class NumberGuessingGame {
 		Scanner sc = new Scanner(System.in);
 		int guessedNumber = 0;
 		
-		System.out.println("---------GUESSING-GAME---------");
-		
 		for (int i = 0; i < 8; i++) {
 			do {
 				System.out.print("Choose the number(1 - 100): ");
