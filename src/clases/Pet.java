@@ -72,8 +72,8 @@ public class Pet {
 	public int feed() {
 		
 		if (this.joyPoints == 0) {
-			System.out.println("You cant play anymore not enough play Joy energy");
-			return 2;
+			System.out.println("You cant eat anymore, not enough Joy energy");
+			return 0;
 		}
 		
 		System.out.println("A carrot for " + this.name);
@@ -86,13 +86,17 @@ public class Pet {
 		System.out.print("Press enter...");
 		sc.nextLine();
 		
-		return addPoints(this.hungerPoints, 'h', true) ? 2 : 0;
+		addPoints('h', true);
+		return  2;
 	}
 	
 	public int play() {
 		
-		if(this.hungerPoints == 0)
-			return 2;
+		if(this.hungerPoints == 0) {
+			System.out.println("You cant play anymore, not enough Hunger energy");
+			return 0;
+		}
+			
 		
 		int gameSeletion = (int)(Math.random()*3 +1);
 		boolean win = false;
@@ -120,19 +124,19 @@ public class Pet {
 		}
 		
 		this.hungerPoints = this.hungerPoints -1;
-		
-		return addPoints(this.joyPoints, 'p', win) ? 2 : 0;
+		addPoints('p', win);
+		return  2;
 	}
 
-	private boolean addPoints(int points, char typeOfPoints, boolean win) {
-		if(win && typeOfPoints == 'h') {
-			if (this.hungerPoints < 10) {
+	private boolean addPoints(char typeOfPoints, boolean win) {
+		if(typeOfPoints == 'h') {
+			if (win && this.hungerPoints < 10) {
 				this.hungerPoints += 1;
 				return true;
 			}
 			return false;
-		} else if (win && typeOfPoints == 'p'){
-			if (this.joyPoints < 10) {
+		} else if (typeOfPoints == 'p'){
+			if (win && this.joyPoints < 10) {
 				this.joyPoints = this.joyPoints + 2 > 10 ? 10 : this.joyPoints + 2;
 				return true;
 			}
