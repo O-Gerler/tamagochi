@@ -46,8 +46,8 @@ public class Tamagochi {
 				break;
 			case BAG:
 				cleanConsole();
-				int bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
 				do {
+					int bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
 					switch (bagOption){
 					case BAG_MENU_BUY:
 						pet.buyPotions();
@@ -75,7 +75,7 @@ public class Tamagochi {
 		int option = -1;
 		pet.bag.show();
 		System.out.println("-------------------BAG-MENU-------------------");
-		System.out.println("Your inventory:\nMoney" + pet.bag.getMoney() + "\nHealth potions: " + pet.bag.getHealthPotions()
+		System.out.println("Your inventory:\nMoney: " + pet.bag.getMoney() + "\nHealth potions: " + pet.bag.getHealthPotions()
 				+ "\nFeed potions: " + pet.bag.getFeedPotions());
 		System.out.println(bAG_MENU_BUY + ". BUY\t\t\t" + bAG_MENU_USE + ". USE\t\t\t" + bAG_MENU_EXIT + ". EXIT");
 		System.out.print("Select the option: ");
