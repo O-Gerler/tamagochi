@@ -111,7 +111,10 @@ public class Pet {
 		int gameSeletion = (int)(Math.random()*4 +1);
 		boolean win = false;
 		boolean specialRound = (int) (Math.random()*10+1) == 7 ? true : false;
-		
+		System.out.println("-------------TIME-TO-PLAY-------------");
+		if (specialRound) {
+			System.out.println("SPECIAL ROUND DOUBLE POINTS ACTIVATED");
+		}
 		
 		switch(gameSeletion) {
 			case 1:
