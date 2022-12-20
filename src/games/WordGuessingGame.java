@@ -8,12 +8,11 @@ public class WordGuessingGame {
 		
 		String word = askForWord(sc);
 		String[] wordSeparated = word.split("");
-		int tries = word.length();
-		String[] emptyWord = new String[tries];
+		String[] emptyWord = new String[word.length()];
 		fillArray(emptyWord);
 		
 		
-		return guessWordLoop(sc, wordSeparated, tries, emptyWord);
+		return guessWordLoop(sc, wordSeparated, emptyWord);
 	}
 
 	private static void fillArray(String[] emptyWord) {
@@ -23,18 +22,18 @@ public class WordGuessingGame {
 		
 	}
 
-	private static boolean guessWordLoop(Scanner sc, String[] wordSeparated, int tries, String[] emptyWord) {
-		for (int i = 0; i < wordSeparated.length && tries != 0; i++) {
+	private static boolean guessWordLoop(Scanner sc, String[] wordSeparated, String[] emptyWord) {
+		for (int i = 0; i < wordSeparated.length + 5 && containsEmptyValue(emptyWord); i++) {
 			System.out.print("Choose a character: ");
-			String guessedChar = sc.nextLine().trim().toLowerCase().charAt(0) + "";
-			if (wordSeparated[i].equals(guessedChar)) 
-				emptyWord[i].replace("_", guessedChar);
-			else
-				tries--;
-			showWord(emptyWord);
+			String guessedChar = String.valueOf(sc.nextLine().trim().toLowerCase().charAt(0));
+			for (int j = 0; j < wordSeparated.length; j++) {
+				if (wordSeparated[j].equals(guessedChar)) 
+					emptyWord[j] = guessedChar;
+			}
+			showWord(emptyWord); 
 		}
 		
-		return containsEmptyValue(emptyWord);
+		return false;
 	}
 	
 	
@@ -42,17 +41,17 @@ public class WordGuessingGame {
 	private static boolean containsEmptyValue(String[] emptyWord) {
 		for (String string : emptyWord) {
 			if(string.equals("_"))
-				return false;
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 
 	private static void showWord(String[] emptyWord) {
 		for (String string : emptyWord) {
 			System.out.print(string);
 		}
-		
+		System.out.println();
 	}
 
 	private static String askForWord(Scanner sc) {
