@@ -128,7 +128,7 @@ public class Pet {
 		if(this.hungerPoints < 5) {
 			this.healthPoints--;
 		}
-		if(this.healthPoints == 0) {
+		if(this.healthPoints <= 0) {
 			this.dead = true;
 			System.out.println(this.name + " died!");
 		}
