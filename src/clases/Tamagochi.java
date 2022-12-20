@@ -14,6 +14,10 @@ public class Tamagochi {
 		final int BAG = 4;
 		final int EXIT = 0;
 
+		final int BAG_MENU_BUY = 1;
+		final int BAG_MENU_USE = 2;
+		final int BAG_MENU_EXIT = 0;
+		
 		int time = 8;
 		int day = 1;
 		
@@ -41,7 +45,20 @@ public class Tamagochi {
 				pet.setJoyPoints( (int) (Math.random()*10 + 1));
 				break;
 			case BAG:
-				System.out.println("SHOW BAG");
+				cleanConsole();
+				int bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
+				do {
+					switch (bagOption){
+					case BAG_MENU_BUY:
+						pet.buyPotions();
+						break;
+					case BAG_MENU_USE:
+						pet.usePotions();
+						break;
+					default:
+						System.out.println("Choose a correct option...");
+					}
+				} while (option != BAG_MENU_EXIT);
 				break;
 			case EXIT:
 				bye();
@@ -52,6 +69,24 @@ public class Tamagochi {
 
 		} while (option != EXIT && !pet.isDead());
 		sc.close();
+	}
+
+	private int showBagMenuAndSelectOption(Scanner sc, Pet pet, int bAG_MENU_BUY, int bAG_MENU_USE, int bAG_MENU_EXIT) {
+		int option = -1;
+		pet.bag.show();
+		System.out.println("-------------------BAG-MENU-------------------");
+		System.out.println("Your inventory:\nMoney" + pet.bag.getMoney() + "\nHealth potions: " + pet.bag.getHealthPotions()
+				+ "\nFeed potions: " + pet.bag.getFeedPotions());
+		System.out.println(bAG_MENU_BUY + ". BUY\t\t\t" + bAG_MENU_USE + ". USE\t\t\t" + bAG_MENU_EXIT + ". EXIT");
+		System.out.print("Select the option: ");
+		try {
+			option = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			System.out.println("Select a correct option!");
+			option = -1;
+		}
+		
+		return option;
 	}
 
 	private void cleanConsole() {
