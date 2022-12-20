@@ -129,7 +129,7 @@ public class Tamagochi {
 			final int BAG, final int EXIT, int time, int day) {
 		int option = -1;
 		System.out.println("TIME: " + time + "\t\t\tMONEY: " + pet.bag.getMoney() + "\t\t\tDAY: " + day);
-		pet.showPet();
+		System.out.println(pet.getSprite());
 		System.out.print("Health:\t");
 		pet.showStatusBar(pet.getHealthPoints());
 		System.out.print("\nHunger:\t");
@@ -150,8 +150,9 @@ public class Tamagochi {
 	}
 
 	private void setPetName(Scanner sc, Pet pet) {
+		pet.selectSprite();
 		System.out.println("Choose the name for your new Pet");
-		pet.showPet();
+		System.out.println(pet.getSprite());
 		System.out.print("The name is: ");
 		pet.setName(sc.nextLine());
 	}
