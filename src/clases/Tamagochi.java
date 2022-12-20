@@ -11,6 +11,7 @@ public class Tamagochi {
 		final int FEED = 1;
 		final int PLAY = 2;
 		final int SLEEP = 3;
+		final int BAG = 4;
 		final int EXIT = 0;
 
 		int time = 8;
@@ -20,7 +21,7 @@ public class Tamagochi {
 
 		do {
 			cleanConsole();
-			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP, EXIT, time, day);
+			option = showPetStatsAndSelectOption(sc, pet, FEED, PLAY, SLEEP,BAG, EXIT, time, day);
 
 			if(time > 21) 
 				option = SLEEP;
@@ -39,6 +40,8 @@ public class Tamagochi {
 				pet.setHungerPoints( (int) (Math.random()*10 + 1));
 				pet.setJoyPoints( (int) (Math.random()*10 + 1));
 				break;
+			case BAG:
+				System.out.println("SHOW BAG");
 			case EXIT:
 				bye();
 				break;
@@ -68,9 +71,9 @@ public class Tamagochi {
 	}
 
 	private int showPetStatsAndSelectOption(Scanner sc, Pet pet, final int FEED, final int PLAY, final int SLEEP,
-			final int EXIT, int time, int day) {
+			final int BAG, final int EXIT, int time, int day) {
 		int option = -1;
-		System.out.println("TIME: " + time + "\t\t\t\t\tDAY: " + day);
+		System.out.println("TIME: " + time + "\t\t\t\t\tMONEY: " + pet.bag.getMoney() + "\t\t\t\t\tDAY: " + day);
 		pet.showPet();
 		System.out.print("Health:\t");
 		pet.showStatusBar(pet.getHealthPoints());
@@ -79,7 +82,7 @@ public class Tamagochi {
 		System.out.print("\nJoy:\t");
 		pet.showStatusBar(pet.getJoyPoints());
 		System.out.println("\nWhat you wanna do");
-		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t" + EXIT + ". EXIT");
+		System.out.println(FEED + ". FEED\t\t" + PLAY + ". PLAY\t\t" + SLEEP + ". SLEEP\t\t" + BAG + ". BAG\t" + EXIT + ". EXIT");
 		System.out.print("Select the option: ");
 		try {
 			option = Integer.parseInt(sc.nextLine());
