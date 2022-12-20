@@ -98,7 +98,7 @@ public class Pet {
 		}
 			
 		
-		int gameSeletion = (int)(Math.random()*3 +1);
+		int gameSeletion = (int)(Math.random()*4 +1);
 		boolean win = false;
 		
 		switch(gameSeletion) {
@@ -121,6 +121,9 @@ public class Pet {
 				
 				System.out.print("Press enter...");
 				sc.nextLine();
+				break;
+			case 4: 
+				System.out.println(this.name + " dont want to play right now");
 		}
 		
 		this.hungerPoints = this.hungerPoints -1;
