@@ -75,7 +75,7 @@ public class Pet {
 	
 	public int feed() {
 		
-		if (this.joyPoints == 0) {
+		if (this.joyPoints == 1) {
 			System.out.println("You cant eat anymore, not enough Joy energy");
 			return 0;
 		}
@@ -96,7 +96,7 @@ public class Pet {
 	
 	public int play() {
 		
-		if(this.hungerPoints == 0) {
+		if(this.hungerPoints == 1) {
 			System.out.println("You cant play anymore, not enough Hunger energy");
 			return 0;
 		}
