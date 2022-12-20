@@ -190,6 +190,10 @@ public class Pet {
 			return "Something went wrong!!!\nExiting...";
 		}
 		
+		if (potionQuantity == 0) {
+			return "You cannot buy 0 potions";
+		}
+		
 		System.out.println("Are you sure [Y/n]");
 		char confirmOption = sc.nextLine().trim().toLowerCase().charAt(0);
 		if ( confirmOption != '\n' || confirmOption != 'y') {
@@ -211,8 +215,60 @@ public class Pet {
 		return "Something went wrong!!!";
 	}
 
-	public void usePotions() {
-		// TODO Auto-generated method stub
+	public String usePotions() {
+		if(this.bag.getHealthPotions() == 0 && this.bag.getFeedPotions() == 0)
+			return "You have no potions to use";
 		
+		int potionOption = 0;
+		int potionQuantity = 1;
+		
+		System.out.println("1. Feed potion\t\t\t2. Health potions");
+		System.out.print("Which one you want to use: ");
+		
+		try {
+			potionOption = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			return "Something went wrong!!!\nExiting...";
+		}
+		
+		System.out.println("How much potions you want to use");
+		
+		try {
+			potionQuantity = Integer.parseInt(sc.nextLine());
+		} catch (Exception e) {
+			return "Something went wrong!!!\nExiting...";
+		}
+		
+		if (potionQuantity == 0) {
+			return "You cannot use 0 potions";
+		}else if (this.bag.getFeedPotions() < potionQuantity) {
+			return "you cannot use more potions than what you have in the bag";
+		}
+		
+		System.out.println("Are you sure [Y/n]");
+		char confirmOption = sc.nextLine().trim().toLowerCase().charAt(0);
+		if ( confirmOption != '\n' || confirmOption != 'y') {
+			return "Exiting...";
+		}
+		
+		if(potionOption == 1 && this.bag.getFeedPotions() >= 1) {
+			if(this.hungerPoints + potionQuantity * 2 > 10) {
+				return "ERROR!!!\nCannot use, full feed passed!!!";
+			}
+			this.setHungerPoints(this.hungerPoints + potionQuantity * 2);
+			this.bag.setFeedPotions(this.bag.getFeedPotions() - potionQuantity);
+			return "Done succesfully, your feed potions now are: " + this.bag.getFeedPotions();
+		}
+			
+		if(potionOption == 2 && this.bag.getHealthPotions() >= 1) {
+			if(this.healthPoints + potionQuantity * 2 > 10) {
+				return "ERROR!!!\nCannot use, full feed passed!!!";
+			}
+			this.setHealthPoints(this.healthPoints + potionQuantity * 2);
+			this.bag.setHealthPotions(this.bag.getHealthPotions() - potionQuantity);
+			return "Done succesfully, your health potions now are: " + this.bag.getFeedPotions();
+		}
+		
+		return "Something went wrong!!!";
 	}
 }
