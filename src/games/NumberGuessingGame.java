@@ -10,10 +10,9 @@ public class NumberGuessingGame {
 		
 		System.out.println("---------GUESSING-GAME---------");
 		
-		for (int i = 0; i < 5; i++) {
-			System.out.print("Choose the number(1 - 100): ");
-			
+		for (int i = 0; i < 8; i++) {
 			do {
+				System.out.print("Choose the number(1 - 100): ");
 				try {
 					guessedNumber = Integer.parseInt(sc.nextLine());
 				} catch (Exception e) {
@@ -22,11 +21,15 @@ public class NumberGuessingGame {
 				}
 			} while (guessedNumber < 1 || guessedNumber > 100);
 			
-			
 			if(guessedNumber == CORRECT_NUMBER) {
 				System.out.println("CONGRATULATIONS!!!");
 				return true;
 			}
+			
+			if(guessedNumber < CORRECT_NUMBER)
+				System.out.println("The number is higher");
+			else
+				System.out.println("The number is lower");
 		}
 		
 		sc.close();
