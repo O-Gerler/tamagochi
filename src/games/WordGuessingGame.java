@@ -12,7 +12,8 @@ public class WordGuessingGame {
 		fillArray(emptyWord);
 		
 		
-		return guessWordLoop(sc, wordSeparated, emptyWord);
+		guessWordLoop(sc, wordSeparated, emptyWord);
+		return !containsEmptyValue(emptyWord);
 	}
 
 	private static void fillArray(String[] emptyWord) {
@@ -22,7 +23,7 @@ public class WordGuessingGame {
 		
 	}
 
-	private static boolean guessWordLoop(Scanner sc, String[] wordSeparated, String[] emptyWord) {
+	private static void guessWordLoop(Scanner sc, String[] wordSeparated, String[] emptyWord) {
 		for (int i = 0; i < wordSeparated.length + 5 && containsEmptyValue(emptyWord); i++) {
 			System.out.print("Choose a character: ");
 			String guessedChar = String.valueOf(sc.nextLine().trim().toLowerCase().charAt(0));
@@ -32,8 +33,6 @@ public class WordGuessingGame {
 			}
 			showWord(emptyWord); 
 		}
-		
-		return false;
 	}
 	
 	
