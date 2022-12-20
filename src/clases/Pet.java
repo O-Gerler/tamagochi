@@ -13,6 +13,7 @@ public class Pet {
 	private int hungerPoints;
 	private int joyPoints;
 	private boolean dead;
+	private String sprite;
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -56,17 +57,10 @@ public class Pet {
 		this.dead = dead;
 	}
 	
-	public void showPet() {
-		System.out.println("             ,\\\r\n"
-				+ "             \\\\\\,_\r\n"
-				+ "              \\` ,\\\r\n"
-				+ "         __,.-\" =__)\r\n"
-				+ "       .\"        )\r\n"
-				+ "    ,_/   ,    \\/\\_\r\n"
-				+ "    \\_|    )_-\\ \\_-`\r\n"
-				+ "       `-----` `--`");
+	public String getSprite() {
+		return sprite;
 	}
-	
+
 	public void showStatusBar(int statusBar) {
 		for (int i = 0; i < statusBar; i++) {
 			System.out.print("#");
@@ -280,4 +274,116 @@ public class Pet {
 		
 		return "Something went wrong!!!";
 	}
+	
+	public void selectSprite() {
+		
+		String petRabbit = ("             ,\\\r\n"
+				+ "             \\\\\\,_\r\n"
+				+ "              \\` ,\\\r\n"
+				+ "         __,.-\" =__)\r\n"
+				+ "       .\"        )\r\n"
+				+ "    ,_/   ,    \\/\\_\r\n"
+				+ "    \\_|    )_-\\ \\_-`\r\n"
+				+ "       `-----` `--`");
+		
+		String petArmad = ("             ,.-----__    \r\n"
+				+ "          ,:::://///,:::-. \r\n"
+				+ "         /:''/////// ``:::`;/|/\r\n"
+				+ "        /'   ||||||     :://'`\\\r\n"
+				+ "      .' ,   ||||||     `/(  e \\\r\n"
+				+ "-===~__-'\\__X_`````\\_____/~`-._ `.\r\n"
+				+ "            ~~        ~~       `~-'");
+		
+		String petHippo = ("      c~~p ,---------. \r\n"
+				+ " ,---'oo  )           \\\r\n"
+				+ "( O O                  )/\r\n"
+				+ " `=^='                 /\r\n"
+				+ "       \\    ,     .   /\r\n"
+				+ "       \\\\  |-----'|  /\r\n"
+				+ "       ||__|    |_|__|");
+		
+		String petBat = (" /\\                 /\\\r\n"
+				+ "/ \\'._   (\\_/)   _.'/ \\\r\n"
+				+ "|.''._'--(o.o)--'_.''.|\r\n"
+				+ " \\_ / `;=/ \" \\=;` \\ _/\r\n"
+				+ "   `\\__| \\___/ |__/`\r\n"
+				+ "        \\(_|_)/\r\n"
+				+ "         \" ` \"");
+		
+		String petPingu = ("    	__\r\n"
+				+ "      -=(o '.\r\n"
+				+ "         '.-.\\\r\n"
+				+ "         /|  \\\\\r\n"
+				+ "         '|  ||\r\n"
+				+ "          _\\_):,_");
+		
+		String petOwl = ("  __________\r\n"
+				+ " / ___  ___ \\\r\n"
+				+ "/ / @ \\/ @ \\ \\\r\n"
+				+ "\\ \\___/\\___/ /\\\r\n"
+				+ " \\____\\/____/||\r\n"
+				+ " /     /\\\\\\\\\\//\r\n"
+				+ "|     |\\\\\\\\\\\\\r\n"
+				+ " \\      \\\\\\\\\\\\\r\n"
+				+ "   \\______/\\\\\\\\\r\n"
+				+ "    _||_||_");
+		
+		String petFrog = ("            _   _\r\n"
+				+ "           (.)_(.)\r\n"
+				+ "        _ (   _   ) _\r\n"
+				+ "       / \\/`-----'\\/ \\\r\n"
+				+ "     __\\ ( (     ) ) /__\r\n"
+				+ "     )   /\\ \\._./ /\\   (\r\n"
+				+ "      )_/ /|\\   /|\\ \\_(");
+		System.out.println(1 + ". RABBIT");
+		System.out.println(petRabbit);
+		System.out.println(2 + ". ARMADILLO");
+		System.out.println(petArmad);
+		System.out.println(3 + ". HIPPO");
+		System.out.println(petHippo);
+		System.out.println(4 + ". BAT");
+		System.out.println(petBat);
+		System.out.println(5 + ". PENGUIN");
+		System.out.println(petPingu);
+		System.out.println(6 + ". OWL");
+		System.out.println(petOwl);
+		System.out.println(7 + ". FROG");
+		System.out.println(petFrog);
+		int option = 0;
+		do {
+			try {
+				System.out.print("Select the animal you want(1-7): ");
+				option = Integer.parseInt(sc.nextLine());
+			} catch (Exception e) {
+				System.out.println("ERROR!!!\nWrite a number please...");
+				option = 0;
+			}
+		} while (option < 1 || option > 7);
+		
+		switch (option) {
+		case 1: 
+			this.sprite = petRabbit;
+			break;
+		case 2: 
+			this.sprite = petArmad;
+			break;
+		case 3: 
+			this.sprite = petHippo;
+			break;
+		case 4: 
+			this.sprite = petBat;
+			break;
+		case 5: 
+			this.sprite = petPingu;
+			break;
+		case 6: 
+			this.sprite = petOwl;
+			break;
+		case 7: 
+			this.sprite = petFrog;
+			break;
+		}
+	}
+	
+	
 }
