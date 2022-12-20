@@ -2,6 +2,9 @@ package clases;
 
 import java.util.Scanner;
 
+import games.NumberGuessingGame;
+import games.WordGuessingGame;
+
 public class Pet {
 	private String name;
 	private int healthPoints;
@@ -94,8 +97,10 @@ public class Pet {
 		
 		switch(gameSeletion) {
 			case 1:
+				win = NumberGuessingGame.run();
 				break;
 			case 2:
+				win = WordGuessingGame.run();
 				break;
 			case 3:
 				System.out.println("Playing with " + this.name);
