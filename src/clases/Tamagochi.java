@@ -36,6 +36,8 @@ public class Tamagochi {
 				break;
 			case PLAY:
 				time = pet.play() == 2 ? time + 2 : time;
+				System.out.println("Press enter to continue...");
+				sc.nextLine();
 				break;
 			case SLEEP:
 				pet.checkPetHealth();
@@ -46,19 +48,27 @@ public class Tamagochi {
 				break;
 			case BAG:
 				cleanConsole();
+				int bagOption = -1;
 				do {
-					int bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
+					bagOption = showBagMenuAndSelectOption(sc, pet, BAG_MENU_BUY, BAG_MENU_USE, BAG_MENU_EXIT);
 					switch (bagOption){
 					case BAG_MENU_BUY:
-						pet.buyPotions();
+						System.out.println(pet.buyPotions());
+						System.out.println("Press enter to continue...");
+						sc.nextLine();
 						break;
 					case BAG_MENU_USE:
-						pet.usePotions();
+						System.out.println(pet.usePotions());
+						System.out.println("Press enter to continue...");
+						sc.nextLine();
 						break;
+					case BAG_MENU_EXIT:
+						System.out.println("Exiting...\nPress enter to continue...");
+						sc.nextLine();
 					default:
 						System.out.println("Choose a correct option...");
 					}
-				} while (option != BAG_MENU_EXIT);
+				} while (bagOption != BAG_MENU_EXIT);
 				break;
 			case EXIT:
 				bye();
