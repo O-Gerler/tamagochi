@@ -111,14 +111,13 @@ public class Pet {
 						+ "		 './  \\.'\r\n"
 						+ "		    \"\"");
 				
-				this.hungerPoints = this.hungerPoints -1;
 				win = true;
 				
 				System.out.print("Press enter...");
 				sc.nextLine();
 		}
 		
-		
+		this.hungerPoints = this.hungerPoints -1;
 		
 		return addPoints(this.joyPoints, 'p', win) ? 2 : 0;
 	}
