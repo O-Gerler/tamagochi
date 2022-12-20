@@ -43,7 +43,7 @@ public class Tamagochi {
 				pet.checkPetHealth();
 				time = 8;
 				day++;
-				pet.setHungerPoints( pet.getHungerPoints() - 2);
+				pet.setHungerPoints( pet.getHungerPoints() - 2 < 1 ? 1 : pet.getHungerPoints() - 2);
 				pet.setJoyPoints( (int) (Math.random()*7 + 1));
 				break;
 			case BAG:
