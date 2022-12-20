@@ -23,6 +23,7 @@ public class NumberGuessingGame {
 			
 			if(guessedNumber == CORRECT_NUMBER) {
 				System.out.println("CONGRATULATIONS!!!");
+				sc.close();
 				return true;
 			}
 			
